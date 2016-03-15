@@ -1,9 +1,9 @@
-class Võistlus{
+class VÃµistlus{
     private int raskustase;
     String[] nimed1 = {"Ray'","Juhani","Ilmari","Vladimiri","Joosepi","Borislavi"};
-    String[] nimed2 = {"Mängumaa", "Pillerkaar", "Tarakaniõiduparadiis"};
+    String[] nimed2 = {"MÃ¤ngumaa", "Pillerkaar", "TarakanisÃµiduparadiis"};
     String[] toimunud = new String[500];
-    public Võistlus(int raskus){
+    public VÃµistlus(int raskus){
         this.raskustase = raskus;
     }
 	public int getRaskustase() {
