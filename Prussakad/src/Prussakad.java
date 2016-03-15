@@ -7,7 +7,6 @@ public class Prussakad {
 }
 
 
-
 class Prussakas{
     private static Random rand_gen = new Random();
     private String nimi;
@@ -37,4 +36,29 @@ class Prussakas{
         olnudnimed[koht]++;
         return nimi1;
     }
+
+    public String getNimi() {
+        return nimi;
+    }
+
+    public void setNimi(String nimi) {
+        this.nimi = nimi;
+    }
+
+    public double getKiirus() {
+        return kiirus;
+    }
+
+    public void setKiirus(double kiirus) {
+        this.kiirus = kiirus;
+    }
+
+    public double getVanus() {
+        return vanus;
+    }
+
+    public void setVanus(double vanus) {
+        this.vanus = vanus;
+    }
+
 }
