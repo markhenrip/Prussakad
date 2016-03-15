@@ -13,4 +13,14 @@ class Võistlus{
 		this.raskustase = raskustase;
 	}
 
+	public String[] korralda_võidusõit(Prussakas [] osalejad){
+	    String[] tulemus = new String[osalejad.length];
+	    int finiššeerinud = 0;
+	    boolean sõit = true;
+	    while (sõit == true){
+	    	if (finiššeerinud == osalejad.length)sõit=false;
+	    	
+	    }
+		return tulemus;
+	}
 }
