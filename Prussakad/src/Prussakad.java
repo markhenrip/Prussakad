@@ -9,6 +9,6 @@ public class Prussakad {
 		for (int i = 0; i<50;i++){
 			juss[i] = Prussakas.loo_prussakas(1);
 		}
-		for (Prussakas pruss : juss)System.out.println(pruss.getKiirus());
+		for (Prussakas pruss : juss)System.out.println(pruss.getNimi());
 	}
 }

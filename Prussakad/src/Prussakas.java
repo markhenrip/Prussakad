@@ -30,10 +30,7 @@ class Prussakas{
     	case 10: kordaja = 5;
     	}
     	double kiirus = (8 + rand_gen.nextDouble() * kordaja);
-        return new Prussakas(anna_nimi(), kiirus, 1);
-    }
-    public static Prussakas loo_prussakas(){
-        return new Prussakas(anna_nimi(), 100, 1);
+        return new Prussakas(anna_nimi(), kiirus, 1 * rand_gen.nextInt(10));
     }
     
     private static String anna_nimi(){
