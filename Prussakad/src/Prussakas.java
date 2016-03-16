@@ -9,7 +9,7 @@ class Prussakas{
     private double vanus;               //päevades
     private static final ArrayList<String> nimed = new ArrayList<String>(Arrays.asList("Coco", "Bernard", "Donald", "Jim", "Craig", "Ryan", "John", "Mango", "Thumper", "Bella", "Kiwi", "Charlie", "Oreo", "Sunny", "Gizmo", "Peanut", "Bonito","Bella", "Bailey", "Max", "Chloe", "Lucy", "Molly", "Charlie", "Daisy", "Buddy", "Maggy", "Sophie", "White Lightning"));
     private static int[] olnudnimed = new int[500];
-    private static final String[] rooma_nr = {"I","II","III","IV","V","VI","VII","IX","X","XI","XII","XIII","XIV","XV","XVI","XVII","XVIII","XIX","XX"};
+    private static final String[] rooma_nr = {"I","II","III","IV","V","VI","VII","IX","X","XI","XII","XIII","XIV","XV","XVI","XVII","XVIII","XIX","XX"}; // kui samad nimed tekivad
     Prussakas(String nimi, double kiirus, double vanus) {
         this.nimi = nimi;
         this.kiirus = kiirus;

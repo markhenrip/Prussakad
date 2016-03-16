@@ -15,11 +15,35 @@ class Võistlus{
 
 	public String[] korralda_võidusõit(Prussakas [] osalejad){
 	    String[] tulemus = new String[osalejad.length];
-	    int finiššeerinud = 0;
+	    int finiššeerinud = 0; //iks dee 2 š-d
 	    boolean sõit = true;
+	    String prussakas_parim = "";
+	    int number = 0;
+	    Prussakas dummy = new Prussakas (null, 0, 0);
 	    while (sõit == true){
-	    	if (finiššeerinud == osalejad.length)sõit=false;
-	    	
+	    	int i = -1; //et remove-da kõrgeim 
+	    	int I = 0;
+	    	double maksimum = Double.MIN_VALUE;
+	    	for (Prussakas pruss: osalejad){
+	    		i++;
+	    		if (pruss.getKiirus() > maksimum){
+	    			I = i;
+	    			maksimum = pruss.getKiirus();
+	    			prussakas_parim = pruss.getNimi();
+	    			System.out.println(prussakas_parim);
+	    		}
+	    	}
+	    	System.out.println(tulemus);
+	    	for (Prussakas pruss : osalejad){
+	    		System.out.print(pruss.getNimi());
+	    	}
+	    	tulemus[number] = prussakas_parim;
+	    	osalejad[I] = dummy;
+	    	finiššeerinud++;
+	    	if (finiššeerinud == osalejad.length){
+	    		sõit = false;
+	    	}
+	    	number++; // creative I know
 	    }
 		return tulemus;
 	}
