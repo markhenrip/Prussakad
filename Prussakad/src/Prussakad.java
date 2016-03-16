@@ -14,7 +14,7 @@ public class Prussakad {
 		//}
 		//for (Prussakas pruss : juss)System.out.println(pruss.getKiirus());
 		//Võistlus comp = new Võistlus(1);
-		//String[] neeger = comp.korralda_võidusõit(juss); võidusõit, no h8 to all mah niggas out there especially u anton
+		//String[] neeger = comp.korralda_võidusõit(juss); võidusõit, no h8 to all mah niggas out there especially u Anton
 		//for (String sass: neeger)System.out.println(sass);
 		System.out.println("Tere, antud mängus peab tegema pakkumisi prussakate peale.");
 		System.out.println("Mäng saab läbi kui raha saab otsa, või oled võimeline ostma oma enda prussaka, mis maksab 5000");
