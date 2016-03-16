@@ -20,10 +20,10 @@ public class Prussakad {
 		System.out.println("Mäng saab läbi kui raha saab otsa, või oled võimeline ostma oma enda prussaka, mis maksab 5000");
 		System.out.println("Kas tahad alustada?[jah/ei]");
 		String jahei = scn.next();
-		boolean gamble_addict = false;
+		boolean mäng_käib = true;
 		if (jahei.equals("Jah") || jahei.equals("jah")){
-			System.out.println("Lezz go");
-			while (gamble_addict == false){
+			System.out.println("Alustame!");
+			while (mäng_käib == true){
 				Prussakas [] juss = new Prussakas[10];
 				for (int i = 0; i<10;i++){
 					juss[i] = Prussakas.loo_prussakas(1);
@@ -44,22 +44,22 @@ public class Prussakad {
 					raha = raha + (loll*5);
 				}
 				if (raha <= 0){
-					System.out.println("Sul on probleem!");
-					gamble_addict = true;
+					System.out.println("Sul on probleem! Sa oled rahast tühjaks jooksnud!");
+					mäng_käib = false;
 				}
 				else if (raha >= 5000.0){
-					System.out.println("Õnnitlen, sa saad nüüd oma prussaka osta!");
-					gamble_addict = true;
+					System.out.println("Õnnitlen, sa saad nüüd alustada oma karjääri prussakakasvatajana!");
+					mäng_käib = false;
 				}
-				System.out.println("Sul on " + raha);
+				System.out.println("Sul on " + raha + "eurosenti.");
 			}
 		}
 		else{
-			System.out.println("Head aega");
+			System.out.println("Head aega siis.");
 		}
 		
 		
-		
+		/*
 		System.out.println("Nüüd algab päris mäng see tähendab minu oma.");
 		ArrayList<Prussakas> jussid = new ArrayList<Prussakas>();
 		for (int i = 0; i<5;i++){
@@ -69,5 +69,5 @@ public class Prussakad {
 		Võistlus mina = new Võistlus(1);
 		mina.korralda_võidusõit_alt(jussid);
 		
-	}
+	}*/
 }

@@ -73,9 +73,9 @@ class Võistlus{
 	    	scn.next();
 	    	for (Prussakas pruss : osalejad){
 	    		koht = pos[osalejad.indexOf(pruss)];
-	    		palju1 = (int) Math.round(koht);
-	    		palju2 = 99 - palju1;
 	    		if (koht < 100 && koht != -10){
+		    		palju1 = (int) Math.round(koht);
+		    		palju2 = 99 - palju1;
 		    		kujutlus = "|" + new String(new char[palju1]).replace("\0", "-")
 		    	    + "#" + new String(new char[palju2]).replace("\0", "-") + "|" + pruss.getNimi();
 		    		pos[osalejad.indexOf(pruss)] += pruss.getKiirus();
@@ -83,7 +83,7 @@ class Võistlus{
 		    			lõpus.add(pruss);
 		    			finiššeerinud++;
 		    		}else if (koht >= 100 || koht == -10){
-			    		kujutlus = "|" + new String(new char[99]).replace("\0", "-")+ "#" + "|"+koht;
+			    		kujutlus = "|" + new String(new char[99]).replace("\0", "-")+ "#" + "|"+ pruss.getNimi();
 		    		}
 	    		}
 	    		System.out.println(kujutlus);
