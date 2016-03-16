@@ -37,12 +37,12 @@ class Võistlus{
 	    			I = i;
 	    			maksimum = pruss.getKiirus();
 	    			prussakas_parim = pruss.getNimi();
-	    			System.out.println(prussakas_parim);
+	    			System.out.println("###" + prussakas_parim);
 	    		}
 	    	}
-	    	System.out.println(tulemus);
+	    	//System.out.println(tulemus);
 	    	for (Prussakas pruss : osalejad){
-	    		System.out.print(pruss.getNimi());
+	    		//System.out.print(pruss.getNimi());
 	    	}
 	    	tulemus[number] = prussakas_parim;
 	    	osalejad[I] = dummy;
@@ -54,6 +54,9 @@ class Võistlus{
 	    }
 		return tulemus;
 	}
+	
+	
+	
 	
 	public String[] korralda_võidusõit_alt(ArrayList<Prussakas> osalejad){
 	    String[] tulemus = new String[osalejad.size()];
