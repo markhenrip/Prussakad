@@ -1,8 +1,15 @@
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
+
 class Võistlus{
+    private Random rand1 = new Random();
+	Scanner scn  = new Scanner(System.in);
+    private String nimi = "";
     private int raskustase;
-    String[] nimed1 = {"Ray'","Juhani","Ilmari","Vladimiri","Joosepi","Borislavi","Ignati"};
-    String[] nimed2 = {"Mängumaa", "Pillerkaar", "Tarakanisõiduparadiis", "Koletisviuhlemised"};
-    String[] toimunud = new String[500];
+    private static final String[] nimed1 = {"Ray'","Juhani","Ilmari","Vladimiri","Joosepi","Borislavi","Ignati"};
+    private static final String[] nimed2 = {"Mängumaa", "Pillerkaar", "Tarakanisõiduparadiis", "Koletisviuhlemised"};
+    private String[] toimunud = new String[500];
     public Võistlus(int raskus){
         this.raskustase = raskus;
     }
@@ -46,5 +53,22 @@ class Võistlus{
 	    	number++; // creative I know
 	    }
 		return tulemus;
+	}
+	
+	public String[] korralda_võidusõit_alt(ArrayList<Prussakas> osalejad){
+	    String[] tulemus = new String[osalejad.size()];
+	    int finiššeerinud = 0;
+	    boolean sõit = true;
+	    String prussakas_parim = "";
+	    double [] pos = new double[osalejad.size()];
+	    for (int i = 0; i < osalejad.size(); i++)pos[i] = 0;
+	    while (sõit == true){
+	    	
+	    	for (Prussakas pruss : osalejad){
+	    		pos[osalejad.indexOf(pruss)] += pruss.getKiirus();
+	    	}
+	    	if (finiššeerinud == osalejad.size())sõit=false;
+	    }
+	    return tulemus;
 	}
 }
