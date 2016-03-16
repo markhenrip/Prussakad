@@ -60,15 +60,31 @@ class Võistlus{
 	
 	public String[] korralda_võidusõit_alt(ArrayList<Prussakas> osalejad){
 	    String[] tulemus = new String[osalejad.size()];
-	    int finiššeerinud = 0;
+	    int palju1,palju2,finiššeerinud = 0;
 	    boolean sõit = true;
 	    String prussakas_parim = "";
+	    String kujutlus;
 	    double [] pos = new double[osalejad.size()];
 	    for (int i = 0; i < osalejad.size(); i++)pos[i] = 0;
+	    ArrayList<Prussakas> lõpus = new ArrayList<Prussakas>();
 	    while (sõit == true){
-	    	
+	    	lõpus.clear();
 	    	for (Prussakas pruss : osalejad){
-	    		pos[osalejad.indexOf(pruss)] += pruss.getKiirus();
+	    		palju1 = (int) Math.round(pos);
+	    		palju2 = 99 - palju1;
+	    		if (pos[osalejad.indexOf(pruss)] < 100){
+		    		kujutlus = "|" + new String(new char[palju1]).replace("\0", "-")
+		    	    + "#" + new String(new char[palju2]).replace("\0", "-") + "|";
+	    			pos[osalejad.indexOf(pruss)] += pruss.getKiirus();
+		    		if (pos[osalejad.indexOf(pruss)] >= 100){
+		    			lõpus.add(pruss);
+		    		}else if (pos[osalejad.indexOf(pruss)] >= 100){
+			    		kujutlus = "|" + new String(new char[99]).replace("\0", "-")+ "#" + "|";
+		    		}
+	    		}
+		    	for (Prussakas pruss : osalejad){
+
+		    	}
 	    	}
 	    	if (finiššeerinud == osalejad.size())sõit=false;
 	    }
