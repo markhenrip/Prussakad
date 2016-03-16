@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Prussakad {
 	public static void main(String [] args){
-		Scanner vastus = new Scanner(System.in);
+		Scanner scn  = new Scanner(System.in);
 		double raha = 2000.0;
 		//System.out.println("kartul");
 		//Prussakas [] juss = new Prussakas[10];
@@ -18,8 +18,8 @@ public class Prussakad {
 		//for (String sass: neeger)System.out.println(sass);
 		System.out.println("Tere, antud mängus peab tegema pakkumisi prussakate peale.");
 		System.out.println("Mäng saab läbi kui raha saab otsa, või oled võimeline ostma oma enda prussaka, mis maksab 5000");
-		System.out.println("Kas tahad alustada?");
-		String jahei = vastus.next();
+		System.out.println("Kas tahad alustada?[jah/ei]");
+		String jahei = scn.next();
 		boolean gamble_addict = false;
 		if (jahei.equals("Jah") || jahei.equals("jah")){
 			System.out.println("Lezz go");
@@ -28,13 +28,12 @@ public class Prussakad {
 				for (int i = 0; i<10;i++){
 					juss[i] = Prussakas.loo_prussakas(1);
 				}
-				for (Prussakas pruss : juss)System.out.println(pruss.getVanus());
 				for (Prussakas pruss : juss)System.out.println(pruss.getNimi());
 				System.out.println("Sisesta prussaka nimi, kes võidab");
-				String pruss_nimi = vastus.next();
+				String pruss_nimi = scn.next();
 				System.out.println("Sisesta pakutava raha summa");
 				
-				String  pruss_pakkumine = vastus.next(); // SIIN ON MINGI KALA
+				String  pruss_pakkumine = scn.next();
 				int loll = Integer.parseInt(pruss_pakkumine);
 				Võistlus comp = new Võistlus(1);
 				String[] neeger = comp.korralda_võidusõit(juss);

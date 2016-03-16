@@ -36,7 +36,7 @@ class Prussakas{
     private static String anna_nimi(){
         String nimi1 = nimed.get(rand_gen.nextInt(nimed.size()-1));
         int koht = nimed.indexOf(nimi1);
-        nimi1 = nimi1 + " " + rooma_nr[olnudnimed[koht]];
+        nimi1 = nimi1 + "_" + rooma_nr[olnudnimed[koht]];
         olnudnimed[koht]++;
         return nimi1;
     }
