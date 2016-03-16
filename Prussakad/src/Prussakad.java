@@ -51,6 +51,7 @@ public class Prussakad {
 					System.out.println("Õnnitlen, sa saad nüüd oma prussaka osta!");
 					gamble_addict = true;
 				}
+				System.out.println("Sul on " + raha);
 			}
 		}
 		else{
