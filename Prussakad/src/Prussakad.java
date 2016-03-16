@@ -60,11 +60,13 @@ public class Prussakad {
 		
 		
 		System.out.println("Nüüd algab päris mäng see tähendab minu oma.");
-		ArrayList<Prussakas> juss2 = new ArrayList<Prussakas>();
-		for (int i = 0; i<10;i++){
-			juss2.add(Prussakas.loo_prussakas(1));
+		ArrayList<Prussakas> jussid = new ArrayList<Prussakas>();
+		for (int i = 0; i<5;i++){
+			jussid.add(Prussakas.loo_prussakas(1));
 		}
-		for (Prussakas pruss : juss2)System.out.println(pruss.getNimi());
-
+		for (Prussakas pruss : jussid)System.out.print(pruss.getNimi()+ " ");
+		Võistlus mina = new Võistlus(1);
+		mina.korralda_võidusõit_alt(jussid);
+		
 	}
 }

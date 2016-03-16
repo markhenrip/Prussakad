@@ -58,32 +58,46 @@ class Võistlus{
 	
 	
 	
-	public String[] korralda_võidusõit_alt(ArrayList<Prussakas> osalejad){
-	    String[] tulemus = new String[osalejad.size()];
+	public Prussakas[] korralda_võidusõit_alt(ArrayList<Prussakas> osalejad){
+	    Prussakas[] tulemus = new Prussakas[osalejad.size()];
 	    int palju1,palju2,finiššeerinud = 0;
+	    double koht,max;
 	    boolean sõit = true;
 	    String prussakas_parim = "";
-	    String kujutlus;
+	    String kujutlus = "";
 	    double [] pos = new double[osalejad.size()];
 	    for (int i = 0; i < osalejad.size(); i++)pos[i] = 0;
 	    ArrayList<Prussakas> lõpus = new ArrayList<Prussakas>();
 	    while (sõit == true){
 	    	lõpus.clear();
+	    	scn.next();
 	    	for (Prussakas pruss : osalejad){
-	    		palju1 = (int) Math.round(pos);
+	    		koht = pos[osalejad.indexOf(pruss)];
+	    		palju1 = (int) Math.round(koht);
 	    		palju2 = 99 - palju1;
-	    		if (pos[osalejad.indexOf(pruss)] < 100){
+	    		if (koht < 100 && koht != -10){
 		    		kujutlus = "|" + new String(new char[palju1]).replace("\0", "-")
-		    	    + "#" + new String(new char[palju2]).replace("\0", "-") + "|";
-	    			pos[osalejad.indexOf(pruss)] += pruss.getKiirus();
-		    		if (pos[osalejad.indexOf(pruss)] >= 100){
+		    	    + "#" + new String(new char[palju2]).replace("\0", "-") + "|" + koht;
+		    		pos[osalejad.indexOf(pruss)] += pruss.getKiirus();
+		    		if (koht >= 100 && (lõpus.indexOf(pruss) != -1)){
 		    			lõpus.add(pruss);
-		    		}else if (pos[osalejad.indexOf(pruss)] >= 100){
-			    		kujutlus = "|" + new String(new char[99]).replace("\0", "-")+ "#" + "|";
+		    			finiššeerinud++;
+		    		}else if (koht >= 100 || koht == -10){
+			    		kujutlus = "|" + new String(new char[99]).replace("\0", "-")+ "#" + "|"+koht;
 		    		}
 	    		}
-		    	for (Prussakas pruss : osalejad){
-
+	    		System.out.println(kujutlus);
+	    	}
+	    	for (int i = 0; i < osalejad.size(); i++){
+	    	max = 0;
+		    	if (pos[i] > 100){
+		    		for (int p = 0; p < osalejad.size(); p++){
+		    			if (pos[i] > max){
+		    				max = pos[i];
+		    			}	
+		    		}
+		    		pos[i] = -10;
+		    		tulemus[i] = osalejad.get(i);
 		    	}
 	    	}
 	    	if (finiššeerinud == osalejad.size())sõit=false;
