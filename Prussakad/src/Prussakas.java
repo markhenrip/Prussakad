@@ -16,7 +16,7 @@ class Prussakas{
         this.vanus = vanus;
         if (olnudnimed[0] != 0){
             for (int i = 0; i < 500; i++){
-                olnudnimed[i] = 0;
+                olnudnimed[i] = 0;           //konstruktor erinevate kiiruste, vanuste ja nimede prussakad, juhul kui mitu sama nimega prussakat, siis saavad roomanr taha
             }
         }
     }
@@ -30,13 +30,13 @@ class Prussakas{
     	case 10: kordaja = 5;
     	}
     	double kiirus = (8 + rand_gen.nextDouble() * kordaja);
-        return new Prussakas(anna_nimi(), kiirus, 1 * rand_gen.nextInt(10));
+        return new Prussakas(anna_nimi(), kiirus, 1 * rand_gen.nextInt(10)); //prussaka loomine ja kiiruse andmine (raskustase on edasi arenduse võimalus ja suurte ambitsioonide vare)
     }
     
     private static String anna_nimi(){
         String nimi1 = nimed.get(rand_gen.nextInt(nimed.size()-1));
         int koht = nimed.indexOf(nimi1);
-        nimi1 = nimi1 + "_" + rooma_nr[olnudnimed[koht]];
+        nimi1 = nimi1 + "_" + rooma_nr[olnudnimed[koht]];   //nime andmine
         olnudnimed[koht]++;
         return nimi1;
     }

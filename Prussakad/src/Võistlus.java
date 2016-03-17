@@ -8,7 +8,7 @@ class Võistlus{
     private String nimi = "";
     private int raskustase;
     private static final String[] nimed1 = {"Ray'","Juhani","Ilmari","Vladimiri","Joosepi","Borislavi","Ignati"};
-    private static final String[] nimed2 = {"Mängumaa", "Pillerkaar", "Tarakanisõiduparadiis", "Koletisviuhlemised"};
+    private static final String[] nimed2 = {"Mängumaa", "Pillerkaar", "Tarakanisõiduparadiis", "Koletisviuhlemised"}; //siin kuni public Võitsluseni on suurte ambitsioonide varemed
     private String[] toimunud = new String[500];
     public Võistlus(int raskus){
         this.raskustase = raskus;
@@ -22,7 +22,7 @@ class Võistlus{
 
 	public String[] korralda_võidusõit(Prussakas [] osalejad){
 	    String[] tulemus = new String[osalejad.length];
-	    Prussakas[] joonis = new Prussakas[osalejad.length];
+	    Prussakas[] joonis = new Prussakas[osalejad.length]; //loon koopia osalevatest prussakatest
 	    int j = -1;
 	    for (Prussakas elem: osalejad){
 	    	j++;
@@ -33,34 +33,34 @@ class Võistlus{
 	    String prussakas_parim = "";
 	    int number = 0;
 	    String rada = "";
-	    Prussakas dummy = new Prussakas (null, 0, 0);
+	    Prussakas dummy = new Prussakas (null, 0, 0); // see asendatakse array-sse, kuna me tahame eemaldada kiireima ja moodustada edetabelit
 	    String[] rajad = new String[osalejad.length];
 	    j = 0;
 	    
 	    while (sõit == true){
-	    	int i = -1; //et remove-da kõrgeim 
-	    	int I = 0;
+	    	int i = -1; //et eemaldada kõrgeim 
+	    	int I = 0; // i abistaja
 	    	double maksimum = Double.MIN_VALUE;
 	    	for (Prussakas pruss: osalejad){
 	    		i++;
 	    		if (pruss.getKiirus() > maksimum){
 	    			I = i;
 	    			maksimum = pruss.getKiirus();
-	    			prussakas_parim = pruss.getNimi();
+	    			prussakas_parim = pruss.getNimi(); //siin toimub parima välja selgitamine
 	    			//System.out.println("###" + prussakas_parim);
 	    		}
 	    	}
-	    	for (Prussakas elem_j: joonis){
-	    		rada = "|" + new String(new char[99]).replace("\0", "-") + "|" + elem_j.getNimi();
-	    	}
+//	    	for (Prussakas elem_j: joonis){
+//	    		rada = "|" + new String(new char[99]).replace("\0", "-") + "|" + elem_j.getNimi(); 
+//	    	}
 	    	//System.out.println(tulemus);
-	    	for (Prussakas pruss : osalejad){
-	    		//System.out.print(pruss.getNimi());
-	    	}
-	    	tulemus[number] = prussakas_parim;
-	    	osalejad[I] = dummy;
+	    	//for (Prussakas pruss : osalejad){
+	    	//	System.out.print(pruss.getNimi());
+	    	//}
+	    	tulemus[number] = prussakas_parim; //lisame parimad
+	    	osalejad[I] = dummy; //asendame parima mõttetu klooniga
 	    	finiššeerinud++;
-	    	if (finiššeerinud == osalejad.length){
+	    	if (finiššeerinud == osalejad.length){ //kui kõik osalejad on finišisse jõudnud
 	    		sõit = false;
 	    	}
 	    	number++; // creative I know
@@ -82,7 +82,7 @@ class Võistlus{
 	    			char[] r2 = r.toCharArray();
 	    			if (k + teepikkus < 100)
 	    			{
-	    				r2[k+teepikkus]='#';
+	    				r2[k+teepikkus]='#'; //stringbuilder was found about, after 
 	    			}
 	    			else 
 	    			{
@@ -96,7 +96,13 @@ class Võistlus{
 	    	for(String s : rajad) {System.out.println(s+"");}
 	    	System.out.println();
 	    	System.out.println("Võistluse jälgimiseks vajuta korduvalt Enterit. ");
-	    	scn.nextLine();
+	    	//scn.nextLine();
+	    	try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	    }
 	    	
 		return tulemus;
