@@ -34,6 +34,10 @@ public class Prussakad {
 				System.out.println("Sisesta pakutava raha summa");
 				String  pruss_pakkumine = scn.next();
 				int pakkumine = Integer.parseInt(pruss_pakkumine);
+				if (pakkumine > raha){
+					System.out.println("Sul pole nii palju raha");
+					break;
+				}
 				Võistlus comp = new Võistlus(1);
 				String[] edetabel = comp.korralda_võidusõit(juss);
 				System.out.println("Võitja on "+ edetabel[0]);
