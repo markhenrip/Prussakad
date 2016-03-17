@@ -22,11 +22,21 @@ class Võistlus{
 
 	public String[] korralda_võidusõit(Prussakas [] osalejad){
 	    String[] tulemus = new String[osalejad.length];
+	    Prussakas[] joonis = new Prussakas[osalejad.length];
+	    int j = -1;
+	    for (Prussakas elem: osalejad){
+	    	j++;
+	    	joonis[j] = elem;
+	    }
 	    int finiššeerinud = 0; //iks dee 2 š-d
 	    boolean sõit = true;
 	    String prussakas_parim = "";
 	    int number = 0;
+	    String rada = "";
 	    Prussakas dummy = new Prussakas (null, 0, 0);
+	    String[] rajad = new String[osalejad.length];
+	    j = 0;
+	    
 	    while (sõit == true){
 	    	int i = -1; //et remove-da kõrgeim 
 	    	int I = 0;
@@ -37,8 +47,11 @@ class Võistlus{
 	    			I = i;
 	    			maksimum = pruss.getKiirus();
 	    			prussakas_parim = pruss.getNimi();
-	    			System.out.println("###" + prussakas_parim);
+	    			//System.out.println("###" + prussakas_parim);
 	    		}
+	    	}
+	    	for (Prussakas elem_j: joonis){
+	    		rada = "|" + new String(new char[99]).replace("\0", "-") + "|" + elem_j.getNimi();
 	    	}
 	    	//System.out.println(tulemus);
 	    	for (Prussakas pruss : osalejad){
@@ -52,56 +65,90 @@ class Võistlus{
 	    	}
 	    	number++; // creative I know
 	    }
+	    for (Prussakas elem_j: joonis){
+    		rada = "|#" + new String(new char[99]).replace("\0", "-") + "|" + elem_j.getNimi();
+    		rajad[j] = rada;
+    		j++;
+    	}
+	    
+	    while (rajad[rajad.length-1].indexOf("#") < 100){
+	    	j = -1;
+	    	for (String r: rajad){
+	    		j++;
+	    		if (r.indexOf("#") < 100){
+	    			int teepikkus = (int)Math.round(joonis[j].getKiirus());
+	    			int k = r.indexOf("#");
+	    			r = r.replace("#", "-");
+	    			char[] r2 = r.toCharArray();
+	    			if (k + teepikkus < 100)
+	    			{
+	    				r2[k+teepikkus]='#';
+	    			}
+	    			else 
+	    			{
+	    				r2[100]='#';
+	    			}
+	    			rajad[j] = new String(r2);
+	    		
+	    		}
+	    		
+	    	}
+	    	for(String s : rajad) {System.out.println(s+"");}
+	    	System.out.println();
+	    	System.out.println("Võistluse jälgimiseks vajuta korduvalt Enterit. ");
+	    	scn.nextLine();
+	    }
+	    	
 		return tulemus;
 	}
 	
 	
 	
 	
-	public Prussakas[] korralda_võidusõit_alt(ArrayList<Prussakas> osalejad){
-	    Prussakas[] tulemus = new Prussakas[osalejad.size()];
-	    int palju1,palju2,finiššeerinud = 0;
-	    double koht,max;
-	    boolean sõit = true;
-	    String prussakas_parim = "";
-	    String kujutlus = "";
-	    double [] pos = new double[osalejad.size()];
-	    for (int i = 0; i < osalejad.size(); i++)pos[i] = 0;
-	    ArrayList<Prussakas> lõpus = new ArrayList<Prussakas>();
-	    while (sõit == true){
-	    	lõpus.clear();
-	    	scn.next();
-	    	for (Prussakas pruss : osalejad){
-	    		koht = pos[osalejad.indexOf(pruss)];
-	    		if (koht < 100 && koht != -10){
-		    		palju1 = (int) Math.round(koht);
-		    		palju2 = 99 - palju1;
-		    		kujutlus = "|" + new String(new char[palju1]).replace("\0", "-")
-		    	    + "#" + new String(new char[palju2]).replace("\0", "-") + "|" + pruss.getNimi();
-		    		pos[osalejad.indexOf(pruss)] += pruss.getKiirus();
-		    		if (koht >= 100 && (lõpus.indexOf(pruss) != -1)){
-		    			lõpus.add(pruss);
-		    			finiššeerinud++;
-		    		}else if (koht >= 100 || koht == -10){
-			    		kujutlus = "|" + new String(new char[99]).replace("\0", "-")+ "#" + "|"+ pruss.getNimi();
-		    		}
-	    		}
-	    		System.out.println(kujutlus);
-	    	}
-	    	for (int i = 0; i < osalejad.size(); i++){
-	    	max = 0;
-		    	if (pos[i] > 100){
-		    		for (int p = 0; p < osalejad.size(); p++){
-		    			if (pos[i] > max){
-		    				max = pos[i];
-		    			}	
-		    		}
-		    		pos[i] = -10;
-		    		tulemus[i] = osalejad.get(i);
-		    	}
-	    	}
-	    	if (finiššeerinud > 0)sõit=false;
-	    }
-	    return tulemus;
-	}
+//	public Prussakas[] korralda_võidusõit_alt(ArrayList<Prussakas> osalejad){
+//	    Prussakas[] tulemus = new Prussakas[osalejad.size()];
+//	    int palju1,palju2,finiššeerinud = 0;
+//	    double koht,max;
+//	    boolean sõit = true;
+//	    String prussakas_parim = "";
+//	    String kujutlus = "";
+//	    double [] pos = new double[osalejad.size()];
+//	    for (int i = 0; i < osalejad.size(); i++)pos[i] = 0;
+//	    ArrayList<Prussakas> lõpus = new ArrayList<Prussakas>();
+//	    while (sõit == true){
+//	    	lõpus.clear();
+//	    	scn.next();
+//	    	for (Prussakas pruss : osalejad){
+//	    		koht = pos[osalejad.indexOf(pruss)];
+//	    		if (koht < 100 && koht != -10){
+//		    		palju1 = (int) Math.round(koht);
+//		    		palju2 = 99 - palju1;
+//		    		kujutlus = "|" + new String(new char[palju1]).replace("\0", "-")
+//		    	    + "#" + new String(new char[palju2]).replace("\0", "-") + "|" + pruss.getNimi();
+//		    		pos[osalejad.indexOf(pruss)] += pruss.getKiirus();
+//		    		if (koht >= 100 && (lõpus.indexOf(pruss) != -1)){
+//		    			lõpus.add(pruss);
+//		    			finiššeerinud++;
+//		    		}else if (koht >= 100 || koht == -10){
+//			    		kujutlus = "|" + new String(new char[99]).replace("\0", "-")+ "#" + "|"+ pruss.getNimi();
+//		    		}
+//	    		}
+//	    		System.out.println(kujutlus);
+//	    	}
+//	    	for (int i = 0; i < osalejad.size(); i++){
+//	    	max = 0;
+//		    	if (pos[i] > 100){
+//		    		for (int p = 0; p < osalejad.size(); p++){
+//		    			if (pos[i] > max){
+//		    				max = pos[i];
+//		    			}	
+//		    		}
+//		    		pos[i] = -10;
+//		    		tulemus[i] = osalejad.get(i);
+//		    	}
+//	    	}
+//	    	if (finiššeerinud > 0)sõit=false;
+//	    }
+//	    return tulemus;
+//	}
 }

@@ -33,15 +33,15 @@ public class Prussakad {
 				String pruss_nimi = scn.next();
 				System.out.println("Sisesta pakutava raha summa");
 				String  pruss_pakkumine = scn.next();
-				int loll = Integer.parseInt(pruss_pakkumine);
+				int pakkumine = Integer.parseInt(pruss_pakkumine);
 				Võistlus comp = new Võistlus(1);
-				String[] neeger = comp.korralda_võidusõit(juss);
-				System.out.println(neeger[0]);
-				if (!pruss_nimi.equals(neeger[0])){
-					raha = raha-loll;
+				String[] edetabel = comp.korralda_võidusõit(juss);
+				System.out.println("Võitja on "+ edetabel[0]);
+				if (!pruss_nimi.equals(edetabel[0])){
+					raha = raha-pakkumine;
 				}
 				else{
-					raha = raha + (loll*5);
+					raha = raha + (pakkumine*5);
 				}
 				if (raha <= 0){
 					System.out.println("Sul on probleem! Sa oled rahast tühjaks jooksnud!");
@@ -51,7 +51,12 @@ public class Prussakad {
 					System.out.println("Õnnitlen, sa saad nüüd alustada oma karjääri prussakakasvatajana!");
 					mäng_käib = false;
 				}
-				System.out.println("Sul on " + raha + "eurosenti.");
+				System.out.println("Sul on " + raha + " eurot.");
+				System.out.println();
+				if (mäng_käib == true){
+				System.out.println("Järgmine võistlus juba algab, valmistu panustamiseks");
+				System.out.println();
+				}
 			}
 		}
 		else{
@@ -70,4 +75,6 @@ public class Prussakad {
 		mina.korralda_võidusõit_alt(jussid);
 		
 	}*/
+	}
 }
+	
